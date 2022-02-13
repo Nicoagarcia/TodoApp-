@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import "../App.css"
 
 const initialFormValues = {
     title: '',
@@ -37,28 +38,25 @@ const TodoForm = ({ todoAdd, todoEdit, todoUpdate, setTodoEdit }) => {
         e.preventDefault();
 
         if (title.trim() === '') {
-            setError('Debes indicar un titulo')
+            setError('Insert a title')
             return;
         }
 
         if (description.trim() === '') {
-            setError('Debes indicar una descripcion');
+            setError('Insert description');
             return;
         }
 
         if (todoEdit) {
-            //actualizando
+
             todoUpdate(formValues);
-            setSuccessMessage('Modificado con exito');
+            setSuccessMessage('Successfully changed');
         }
         else {
             todoAdd(formValues);
-            setSuccessMessage('Agregado con exito');
+            setSuccessMessage('Successfully added');
             setFormValues(initialFormValues);
         }
-
-        // Agregar tareas
-
 
         setTimeout(() => {
             setSuccessMessage(null);
@@ -68,22 +66,12 @@ const TodoForm = ({ todoAdd, todoEdit, todoUpdate, setTodoEdit }) => {
     }
     return (
         <div>
-            <h2 className='text-center display-7'>{todoEdit ? 'editar tarea' : 'Nueva tarea'} </h2>
-
-            {
-                todoEdit &&
-                <button
-                    onClick={() => setTodoEdit(null)}
-                    className='btn btn-sm btn-warning mb-2'>
-                    Cancelar edicion
-                </button>
-            }
-
+            <h2 className='text-center display-7'>{todoEdit ? 'Edit' : 'Create'} </h2>
 
             <form onSubmit={handleSubmit}>
                 <input
                     type='text'
-                    placeholder='titulo'
+                    placeholder='Tittle'
                     className='form-control'
                     value={title}
                     name='title'
@@ -91,16 +79,24 @@ const TodoForm = ({ todoAdd, todoEdit, todoUpdate, setTodoEdit }) => {
                 />
 
                 <textarea
-                    placeholder='descripcion'
+                    placeholder='Description'
                     className='form-control mt-2'
                     value={description}
                     name='description'
                     onChange={handleInputChange}
                 ></textarea>
 
-                <button
-                    className='btn btn-primary btn-block mt-2'
-                > {todoEdit ? 'Actualizar tarea' : 'Agregar Tarea'}
+                {
+                    todoEdit &&
+                    <button
+                        onClick={() => setTodoEdit(null)}
+                        className='btn btn-primary btn-warning mt-2'>
+                        Cancel edit
+                    </button>
+                }
+
+                <button className='btn btn-primary btn-block mt-2 margin'>
+                    {todoEdit ? 'Update task' : 'Add task'}
                 </button>
             </form>
 
@@ -125,7 +121,7 @@ const TodoForm = ({ todoAdd, todoEdit, todoUpdate, setTodoEdit }) => {
                 )
 
             }
-        </div>
+        </div >
 
     );
 }

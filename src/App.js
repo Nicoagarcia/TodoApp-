@@ -6,7 +6,7 @@ import TodoForm from './components/TodoForm';
 const initialTodos = [
     {
         id: 1,
-        title: 'Todo #1',
+        title: 'nico',
         description: 'desc del todo #1',
         completed: false
     },
@@ -41,23 +41,8 @@ const App = () => {
         const changedTodos = todos.filter(todo => todo.id !== todoId);
         setTodos(changedTodos);
     }
+
     const todoToogleCompleted = (todoId) => {
-        //     const changedTodos = todos.map(todo => {
-        //         const todoEdit = {
-        //             ...todo,
-        //             completed: !todo.completed
-        //         }
-
-
-        //         if (todo.id === todoId) {
-        //             return todoEdit
-        //         }
-        //         else {
-        //             return todo
-        //         }
-
-
-        //     })
         const changedTodos = todos.map(todo => todo.id === todoId ? { ...todo, completed: !todo.completed } : todo);
         setTodos(changedTodos);
     }

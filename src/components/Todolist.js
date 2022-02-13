@@ -4,16 +4,17 @@ import Todo from './Todo';
 
 
 
+
 const Todolist = ({ todos, todoDelete, todoToogleCompleted, setTodoEdit }) => {
     return (
         <div>
-            <h2 className='text-center display-7'>  Tareas  </h2>
+            <h2 className='text-center display-7'>  Task  </h2>
 
             {
                 todos.length === 0
                     ? (
-                        <div className='alert alert-primary'>
-                            No hay tareas. Por favor agrege una {':)'}
+                        <div className='text-center display-7 alert alert-primary'>
+                            No tasks found
                         </div>
                     )
                     : (

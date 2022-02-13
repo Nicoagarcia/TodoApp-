@@ -1,17 +1,11 @@
-body{
-    background: rgb(230, 230, 214);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-}
+.App {
+    text-align: center;
+  }
+  
+  body {
+    background-image: linear-gradient(to right, #7f8b8f, #a53c00);
+  }
 
-.btn{
-    background: rgb(192, 217, 255);
-    margin: 20px;
-}
-
-
-.container{
-    border: 2px solid rgb(136, 70, 167);
-    border-radius: 10px;
-
-}
+.margin {
+     margin-left:10px
+} 
