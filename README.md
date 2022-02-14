@@ -6,7 +6,7 @@
 
 1. open the console and go to the main folder
 
-2. run cd npm
+2. run cd npm start 
 
 # > App Details
 
